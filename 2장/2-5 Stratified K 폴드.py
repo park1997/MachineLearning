@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.model_selection import KFold
 from sklearn.tree import DecisionTreeClassifier
 
+iris = load_iris()
 
 
 
