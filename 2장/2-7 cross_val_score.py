@@ -4,7 +4,6 @@ from sklearn.model_selection import GridSearchCV,train_test_split, cross_val_sco
 from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import KFold
 from sklearn.datasets import load_iris
 import numpy as np
 import pandas as pd
@@ -21,11 +20,4 @@ scores = cross_val_score(dt_clf, data, label,scoring='accuracy',cv=3)
 print("교차 검증별 정확도 : ",np.round(scores,4))
 print("평균 검증 정확도 : ",np.round(np.mean(scores),4))
 
-
-
-X_train, X_test, y_train,y_test = train_test_split(iris_data.data, iris_data.target,test_size=0.2, random_state=121)
-
-dt_clf.fit(X_train,y_train)
-pred = dt_clf.predict(X_test)
-print("예측 정확도 : {0:.4f}".format(accuracy_score(y_test,pred)))
 
