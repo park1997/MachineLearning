@@ -16,14 +16,14 @@ cv_accuracy =[]
 print("붓꽃 데이터 세트 크기 :",features.shape[0])
 
 n_iter =0
-#print(kfold.split(features))
+# print(kfold.split(features))
 
 # KFold 객체의 split() 호출하면 폴드 별 학습용, 검증용 테스트의 로우 인덱스를 array로 반환
-for train_index, test_index in kfold.split(features):
+for train_index, test_index in kfold.split(features): # kfold.split(features)은 ndarray의 위치 인덱스를 반환해줌
     # kfold.split() 으로 반환된 인덱스를 이용하여 학습용, 검증용 데스트 데이터 추출
     x_train, x_test = features[train_index], features[test_index]
     y_train, y_test = label[train_index], label[test_index]
-
+    # print(train_index,test_index)
     #  학습 및 예측
     dt_clf.fit(x_train,y_train)
     pred = dt_clf.predict(x_test)
