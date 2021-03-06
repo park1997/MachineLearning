@@ -37,7 +37,7 @@ grid_dtree.fit(X_train,y_train)
 scores_df = pd.DataFrame(grid_dtree.cv_results_)
 scores_df[["params","mean_test_score","rank_test_score","split0_test_score","split1_test_score","split2_test_score"]]
 
-# print(scores_df[["mean_test_score","params"]])
+print(scores_df[["mean_test_score","params"]])
 
 print("GridSearchCV 최적 파라미터 : ",grid_dtree.best_params_) # 최적의 파라미터를 알려줌
 print("GridSearchCV 최고 정확도 : {0:.4f}".format(grid_dtree.best_score_))
