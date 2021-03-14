@@ -10,7 +10,7 @@ encoder.fit(items)
 labels = encoder.transform(items)
 
 # 2차원 데이터로 변환한다.
-# 열은 무조건 하나, 행은 동적으로 변환
+# 열은 무조건 하나, 행은 동적으로 변환 => (-1,1)
 labels = labels.reshape(-1,1)
 
 # One-Hot-Ecoding 진행한다.
@@ -23,6 +23,7 @@ print(oh_labels.toarray())
 print("One-Hot-Encoding 데이터 차원")
 print(oh_labels.shape)
 
+# get_dummies로 간단하게 원핫 인코딩을 할 수있음.
 df = pd.DataFrame({"item":items})
 print(df)
 print(pd.get_dummies(df))
