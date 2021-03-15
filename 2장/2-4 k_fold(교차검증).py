@@ -19,6 +19,7 @@ n_iter =0
 # print(kfold.split(features))
 
 # KFold 객체의 split() 호출하면 폴드 별 학습용, 검증용 테스트의 로우 인덱스를 array로 반환
+# kfold.split() 하면 학습과 검증용 index가 만들어짐
 for train_index, test_index in kfold.split(features): # kfold.split(features)은 ndarray의 위치 인덱스를 반환해줌
     # kfold.split() 으로 반환된 인덱스를 이용하여 학습용, 검증용 데스트 데이터 추출
     x_train, x_test = features[train_index], features[test_index]
