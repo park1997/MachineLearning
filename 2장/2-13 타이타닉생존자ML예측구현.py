@@ -99,7 +99,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
-
+from sklearn.model_selection import KFold
 
 # Lable 인코딩 진행
 def encode_feature(dataDF):
@@ -154,7 +154,7 @@ X_train,X_test,y_train,y_test = train_test_split(X_titanic_df,y_titanic_df,test_
 # 결정트리, Random Forest, 로지스틱 회귀를 위한 사이킷런 Classifier 클래스 생성
 dt_clf = DecisionTreeClassifier(random_state=11)
 rf_clf = RandomForestClassifier(random_state=11)
-lr_clf = LogisticRegression()
+lr_clf = LogisticRegression(max_iter=4000) # max_iter가 작으면 converge하지 못함 4000으로 늘려주자 !
 
 # DecisonTreeClassifier 학습/예측/평가
 dt_clf.fit(X_train,y_train)
@@ -172,9 +172,6 @@ lr_pred = lr_clf.predict(X_test)
 print("LogisticRegression 정확도 : {0:.4f}".format(accuracy_score(y_test,lr_pred)))
 
 
-
-
-
-
-
+def exec_kfold(clf,folds=5):
+    # 폴드세트를 5개인 KFold객체를 생성, 폴드 수만큼 예측결과 저장을 위한 리스트 객체 생성
 
