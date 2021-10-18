@@ -30,7 +30,7 @@ parameter = {"max_depth":[1,2,3],"min_samples_split":[2,3]}
 # refit=True 가 default임. True 이면 가장 좋은 파라미터 설정으로 재 학습 시킴(가장 좋은 결과를 도출할 수 있도록 함)
 grid_dtree = GridSearchCV(dtree,param_grid = parameter,cv=3,refit=True,return_train_score=True)
 
-# 붓꽃 Train 데이터로 param_grid의 하이ㅓ 파라미터들을 순차적으로 학습/평가.
+# 붓꽃 Train 데이터로 param_grid의 하이퍼 파라미터들을 순차적으로 학습/평가.
 grid_dtree.fit(X_train,y_train)
 
 # GridSearchCV 결과는 cv_results_ 라는 딕셔너리로 저장됨. 이를 DataFrame으로 변환
